@@ -5,7 +5,8 @@
 //Setting up the Phrase class. Phrases can only be letters and spaces.
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase.toLowerCase();
+        this.phrase = phrase;
+        //TODO: .toLowerCase() this was throwing an error. Will figure this out later.
     }
 
     addPhraseToDisplay() {
