@@ -34,6 +34,24 @@ class Phrase {
         console.log(phraseCharArray);
         //loop through the char array and for every char create a list item with the given html styling
         //append it to where it should go
+        const phraseUL = document.querySelector('#phrase ul');
+        const isSpace = /^ $/;
+        phraseCharArray.forEach(char => {
+            //creating an li and appending it
+            const li = document.createElement('li');
+            phraseUL.appendChild(li);
+
+            //deciding which class/textcontent should go to which li
+            if (isSpace.test(char)) {
+                //if the char is white space
+                li.className = 'space';
+            } else {
+                //if the char isn't white space
+                li.className = `class="hide letter ${char}">`;
+                li.textContent = `${char}`;
+            }
+
+        });
     }
 
     checkLetter() {
