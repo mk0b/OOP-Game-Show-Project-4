@@ -22,4 +22,8 @@ console.log(game.getRandomPhrase());
 
 
 //testing addPhraseToDisplay()
-game.getRandomPhrase().addPhraseToDisplay();
+//game.getRandomPhrase().addPhraseToDisplay();
+
+//Testing game.startGame();
+game.startGame();
+console.log('Active Phrase - phrase: ' , game.activePhrase.phrase);

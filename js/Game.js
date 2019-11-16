@@ -37,7 +37,12 @@ class Game {
     }
 
     startGame() {
+        //hiding overlay
+        const overlay = document.querySelector('#overlay');
+        overlay.style.display = 'none';
 
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
     }
 
     /*
