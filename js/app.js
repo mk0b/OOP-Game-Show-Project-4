@@ -42,3 +42,5 @@ startGameButton.addEventListener('click', () => {
     game = new Game();
     game.startGame();
 });
+
+//TODO: ended on part 2 step 9
