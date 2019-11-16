@@ -49,8 +49,16 @@ class Phrase {
         return matchedLetter;
     }
 
-    showMatchedLetter() {
-
+    /*
+    Displays letter returned from checkLetter, matches to class and changes matched class to show
+    @param (string) letter - The letter to display.
+    */
+    showMatchedLetter(letter) {
+        //grab the li's
+        //convert to an array of li's
+        //loop through them 
+        //if they match --> change class to the show class
+        //if they don't match do nothing.
     }
 
 }
