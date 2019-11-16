@@ -19,3 +19,7 @@ game.phrases.forEach((phrase, index) => {
 
 //testing the getRandomPhrase()
 console.log(game.getRandomPhrase());
+
+
+//testing addPhraseToDisplay()
+game.getRandomPhrase().addPhraseToDisplay();

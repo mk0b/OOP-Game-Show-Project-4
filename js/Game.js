@@ -26,12 +26,12 @@ class Game {
     */
     createPhrases() {
         const phraseList = [
-            {phrase: 'all bark and no bite'},
-            {phrase: 'as busy as a bee'},
-            {phrase: 'cold turkey'},
-            {phrase: 'calm before the storm'},
-            {phrase: 'hold your horses'},
-            {phrase: 'jump the shark'}
+            {phrase: 'All Bark and No Bite'},
+            {phrase: 'As Busy as a Bee'},
+            {phrase: 'Cold Turkey'},
+            {phrase: 'Calm Before the Storm'},
+            {phrase: 'Hold your Horses'},
+            {phrase: 'Jump the Shark'}
         ];  
         return phraseList;      
     }
@@ -40,9 +40,13 @@ class Game {
 
     }
 
+    /*
+    Creates a random number then uses it to grab a random phrase object.
+    @return {Random Phrase Object} This will be used to display for the game.
+    */ 
     getRandomPhrase() {
         const randomNumber = Math.floor( Math.random() * this.phrases.length);
-        const randomPhrase = this.phrases[randomNumber];
+        const randomPhrase = new Phrase(this.phrases[randomNumber]);
         //TODO: Add code to prevent the same phrase coming up in a row? Maybe. We might take care of this in a diff way.
         return randomPhrase;
     }
