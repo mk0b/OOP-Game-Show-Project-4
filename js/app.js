@@ -43,4 +43,32 @@ startGameButton.addEventListener('click', () => {
     game.startGame();
 });
 
-//TODO: ended on part 2 step 9
+
+/*
+Helper Functions
+*/
+
+//Converts an object into an character array and removes the characters we don't want.
+//I needed this in multiple places so I put it into a separate function.
+//TODO: Remove tests.
+const convertCurrentPhrase = (phrase) => {
+    const currentPhrase = JSON.stringify(phrase).toLowerCase();
+    console.log(typeof phrase);
+    console.log(typeof currentPhrase);
+    console.log(currentPhrase);
+    //break up the string and put it into it's own array for each char including spaces.
+    const phraseCharArray = currentPhrase.split("");
+    console.log(phraseCharArray);
+
+    //Removing the unwated first 10 indices and the last index.
+    for  (let i = 0; i <= 10; i++) {
+        phraseCharArray.shift();
+    }
+    console.log(phraseCharArray);
+    //Removing the last two unwanted chars from the string
+    for (let c = 0; c <= 1; c++) {
+        phraseCharArray.pop();
+    }
+    console.log(phraseCharArray);
+    return phraseCharArray;
+};
