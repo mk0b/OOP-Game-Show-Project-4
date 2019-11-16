@@ -51,8 +51,11 @@ Helper Functions
 //Converts an object into an character array and removes the characters we don't want.
 //I needed this in multiple places so I put it into a separate function.
 //TODO: Remove tests.
+//TODO: Seems to only like this.phrase if I never have to use a diff one, hard code this to this.phrase instead of param phrase.
 const convertCurrentPhrase = (phrase) => {
+    //Fell into a google whole to figure out how to convert an object to a string.
     const currentPhrase = JSON.stringify(phrase).toLowerCase();
+    console.log(game.activePhrase);
     console.log(typeof phrase);
     console.log(typeof currentPhrase);
     console.log(currentPhrase);

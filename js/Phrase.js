@@ -40,12 +40,13 @@ class Phrase {
     Checks if the chosen letter is in the current phrase.
     @param (string) letter we need to check.
     */
+   //TODO: Remove tests.
     checkLetter(letter) {
         //Checks to see if the letter selected by the player mathces a letter in the phrase.'
-        //I need to get the current phrase
-        //activephrase is a 
-        //const matchedLetter =  
-        //return matchedLetter;
+        const matchedLetter = convertCurrentPhrase(this.phrase).find(char => char === letter);
+        console.log(typeof matchedLetter);
+        console.log(matchedLetter); 
+        return matchedLetter;
     }
 
     showMatchedLetter() {
