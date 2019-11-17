@@ -60,8 +60,20 @@ class Game {
 
     }
 
+    /*
+    Checks for winning move.
+    @return {boolean} true if game has been won, false if game hasn't been won yet.
+    */
     checkForWin() {
-
+        //grab the li's
+        const phraseLis = document.querySelectorAll('#phrase li');
+        //convert to an array of li's
+        const liList = [...phraseLis];
+        //remove the spaces from the array
+        const noSpaceLiList = liList.filter(li => !li.classList.contains('space'));
+        console.log(noSpaceLiList);
+        //looping through with .every. If all match will pass true if it gets one false will pass false.
+        return noSpaceLiList.every(li => li.classList.contains('show'));
     }
 
     removeLife() {
