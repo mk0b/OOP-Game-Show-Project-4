@@ -53,12 +53,20 @@ class Phrase {
     Displays letter returned from checkLetter, matches to class and changes matched class to show
     @param (string) letter - The letter to display.
     */
+   //TODO: Remove tests.
     showMatchedLetter(letter) {
         //grab the li's
+        const phraseLis = document.querySelectorAll('#phrase li');
         //convert to an array of li's
+        const liList = [...phraseLis];
         //loop through them 
+        liList.forEach(li => {
         //if they match --> change class to the show class
         //if they don't match do nothing.
+            if (li.textContent === letter) {
+                console.log(li.textContent + letter);
+                li.className = 'show';
+            }
+        });
     }
-
 }
