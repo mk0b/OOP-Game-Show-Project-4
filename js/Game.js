@@ -73,8 +73,30 @@ class Game {
         return noSpaceLiList.every(li => li.classList.contains('show'));
     }
 
+    /*
+    Increases missed property value.
+    Removes a life from the scoreboard.
+    Checks if player has remaining lives and ends game if player is out of lives.
+    */
     removeLife() {
-
+        //remove a heart life from the screen and replace it with the image for the lost heart life.
+        //TODO: How do i get letter here?
+        const letterDoesNotMatch = convertCurrentPhrase(this.activePhrase).find(char => char === letter);
+        const lifeList = convertToArray('#scoreboard li');
+        if (letterDoesNotMatch === false) {
+            //replace the image with lostHeart.png.
+            //loop through once each time this is matched
+            for (let i = 0; i < lifeList.length; i++) {
+                if (lifeList[i].getAttribute('src') === 'images/liveHeart.png') {
+                    //break afte it is changed once? or only loop once?
+                    lifeList[i].setAttribute('src', 'images/lostHeart.png');
+                    //breaks after doing this once I think
+                    break;
+                }
+            }
+            //increase missed prop value.
+            this.missed += 1;
+        }
     }
 
     gameOver() {
