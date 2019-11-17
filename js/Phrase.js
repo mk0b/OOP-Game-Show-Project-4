@@ -55,12 +55,7 @@ class Phrase {
     */
    //TODO: Remove tests.
     showMatchedLetter(letter) {
-        //grab the li's
-        const phraseLis = document.querySelectorAll('#phrase li');
-        //convert to an array of li's
-        const liList = [...phraseLis];
-        //loop through them 
-        liList.forEach(li => {
+        convertToArray('#phrase li').forEach(li => {
         //if they match --> change class to the show class
         //if they don't match do nothing.
             if (li.textContent === letter) {

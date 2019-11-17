@@ -75,3 +75,12 @@ const convertCurrentPhrase = (phrase) => {
     console.log(phraseCharArray);
     return phraseCharArray;
 };
+
+//Multiple places I need to grab elements and use them as an array so condensed the code.
+const convertToArray = (querySelectorAllElementString) => {
+    //grabbing the collection of elements
+    const collection = document.querySelectorAll(querySelectorAllElementString);
+    //converting it into an array
+    const list = [...collection];
+    return list;
+};
