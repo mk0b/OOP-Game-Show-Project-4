@@ -35,6 +35,7 @@ Real code below this line | Bulk Test Code to be removed above.
 //Declarations
 let game;
 const startGameButton = document.querySelector('#btn__reset');
+const keyboardDiv = document.querySelector('#qwerty');
 
 //Event Listeners
 
@@ -43,6 +44,13 @@ startGameButton.addEventListener('click', () => {
     game.startGame();
 });
 
+//create dynamic event listener for clicking any button letter.
+keyboardDiv.addEventListener('click', (event) => {
+    const clicked = event.target;
+    console.log(clicked);
+    //if a letter was clicked log the buttom/letter when calling handleInteraction(button)
+
+});
 
 /*
 Helper Functions

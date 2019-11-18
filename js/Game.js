@@ -97,7 +97,7 @@ class Game {
                 break;
             } else {
                 //TODO: Make sure this works after I finish the gameOver() method.
-                //TODO: how will this know if it's lost or one? Get's it from somewhere else?
+                //TODO: add checkforwin to below?
                 this.gameOver();
             }
         }
@@ -114,12 +114,12 @@ class Game {
         //if gameWon is true display won message else display loss message.
         const gameOverMessage = document.querySelector('#game-over-message');
         if (gameWon === true) {
-            gameOverMessage.textContent = 'YAS YOU WON - GO YOU!';
-            gameOverMessage.className = 'win';
+            gameOverMessage.textContent = 'YAS, YOU WON - GO YOU!';
+            overlay.className = 'win';
             overlay.style.display = 'block';
         } else if (gameWon === false) {
             gameOverMessage.textContent = 'BOO, YOU LOSE - TRY AGAIN!';
-            gameOverMessage.className = 'lose';
+            overlay.className = 'lose';
             overlay.style.display = 'block';
         }
     }
