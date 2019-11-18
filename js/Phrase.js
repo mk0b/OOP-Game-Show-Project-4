@@ -43,10 +43,14 @@ class Phrase {
    //TODO: Remove tests.
     checkLetter(letter) {
         //Checks to see if the letter selected by the player mathces a letter in the phrase.'
+        //need to return true or false.
+        //TODO: see if this works/fix it.
         const matchedLetter = convertCurrentPhrase(this.phrase).find(char => char === letter);
-        console.log(typeof matchedLetter);
-        console.log(matchedLetter); 
-        return matchedLetter;
+        if (matchedLetter !== undefined) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /*

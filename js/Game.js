@@ -63,7 +63,7 @@ class Game {
    //TODO: Remove tests.
     handleInteraction(button) {
         console.log(button);
-        console.log(game.checkLetter(button.textContent));
+        console.log(game.activePhrase.checkLetter(button.textContent));
         //console.log(phrase.checkLetter());
         //disable the button that was clicked.
         button.disabled = true;
