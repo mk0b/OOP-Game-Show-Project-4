@@ -67,15 +67,25 @@ class Game {
         //console.log(phrase.checkLetter());
         //disable the button that was clicked.
         button.disabled = true;
-        //if (phrase.checkLetter(button.textContent)) {
+        if (game.activePhrase.checkLetter(button.textContent)) {
+            //if phrase includes the guessed letter
+            //set class to 'chosen'
+            button.className = 'chosen';
+            //call showMatchedLetter
+            //if player has won the game call gameOver check with checkforWin
+            if (game.checkForWin()) {
+                //true - player has won!
+                game.gameOver();
+
+            }
+            game.activePhrase.showMatchedLetter(button.textContent);
+        } else {
             //if phrase does not include the guessed letter
             //set class to 'wrong'
+            button.className = 'wrong';
             //call removeLife()
-        //}
-        //if phrase includes the guessed letter 
-        //set class to 'chosen'
-        //call showMatchedLetter - checkForWin
-        //if player has won the game call gameOver
+            game.removeLife();
+        }
     }
 
     /*
