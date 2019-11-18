@@ -81,22 +81,23 @@ class Game {
     removeLife() {
         //remove a heart life from the screen and replace it with the image for the lost heart life.
         //TODO: How do i get letter here?
-        const letterDoesNotMatch = convertCurrentPhrase(this.activePhrase).find(char => char === letter);
+        //TODO: I don't have to check the letter because this should only be called to def remove a life.
+        //const letterDoesNotMatch = convertCurrentPhrase(this.activePhrase).find(char => char === letter);
         const lifeList = convertToArray('#scoreboard li');
-        if (letterDoesNotMatch === false) {
-            //replace the image with lostHeart.png.
-            //loop through once each time this is matched
-            for (let i = 0; i < lifeList.length; i++) {
-                if (lifeList[i].getAttribute('src') === 'images/liveHeart.png') {
-                    //break afte it is changed once? or only loop once?
-                    lifeList[i].setAttribute('src', 'images/lostHeart.png');
-                    //breaks after doing this once I think
-                    break;
-                }
+        //replace the image with lostHeart.png.
+        //loop through once each time this is matched
+        for (let i = 0; i < lifeList.length; i++) {
+            if (lifeList[i].getAttribute('src') === 'images/liveHeart.png') {
+                //break afte it is changed once? or only loop once?
+                lifeList[i].setAttribute('src', 'images/lostHeart.png');
+                //breaks after doing this once I think
+                break;
+            } else {
+                this.gameOver();
             }
+        }
             //increase missed prop value.
             this.missed += 1;
-        }
     }
 
     gameOver() {
