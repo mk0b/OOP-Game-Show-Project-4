@@ -48,7 +48,7 @@ startGameButton.addEventListener('click', () => {
 keyboardDiv.addEventListener('click', (event) => {
     const clicked = event.target;
     console.log(clicked);
-    //if a letter was clicked log the buttom/letter when calling handleInteraction(button)
+    //if a letter (only button letters not div) was clicked log the buttom/letter when calling handleInteraction(button)
 
 });
 
