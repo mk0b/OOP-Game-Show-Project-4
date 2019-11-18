@@ -78,26 +78,29 @@ class Game {
     Removes a life from the scoreboard.
     Checks if player has remaining lives and ends game if player is out of lives.
     */
+    //TODO: Remove tests.
     removeLife() {
         //remove a heart life from the screen and replace it with the image for the lost heart life.
-        //TODO: How do i get letter here?
-        //TODO: I don't have to check the letter because this should only be called to def remove a life.
-        //const letterDoesNotMatch = convertCurrentPhrase(this.activePhrase).find(char => char === letter);
-        const lifeList = convertToArray('#scoreboard li');
+        const imgList = convertToArray('#scoreboard img');
+        console.log(imgList);
         //replace the image with lostHeart.png.
         //loop through once each time this is matched
-        for (let i = 0; i < lifeList.length; i++) {
-            if (lifeList[i].getAttribute('src') === 'images/liveHeart.png') {
-                //break afte it is changed once? or only loop once?
-                lifeList[i].setAttribute('src', 'images/lostHeart.png');
+        for (let i = 0; i < imgList.length; i++) {
+            console.log(imgList[i]);
+            //matching to the item in the list that hasn't been removed yet.
+            if (imgList[i].getAttribute('src') === 'images/liveHeart.png') {
+                //increase missed prop value.
+                this.missed += 1;
+                //resetting the img src
+                imgList[i].src = 'images/lostHeart.png';
                 //breaks after doing this once I think
                 break;
             } else {
+                //TODO: Make sure this works after I finish the gameOver() method.
                 this.gameOver();
             }
         }
-            //increase missed prop value.
-            this.missed += 1;
+
     }
 
     gameOver() {
