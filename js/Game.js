@@ -97,14 +97,31 @@ class Game {
                 break;
             } else {
                 //TODO: Make sure this works after I finish the gameOver() method.
+                //TODO: how will this know if it's lost or one? Get's it from somewhere else?
                 this.gameOver();
             }
         }
 
     }
 
-    gameOver() {
-
+    /*
+    Displays game over message
+    @param {boolean} gameWon - weather or not the user wont the game.
+    */
+    gameOver(gameWon) {
+        //show overlay
+        const overlay = document.querySelector('#overlay');
+        //if gameWon is true display won message else display loss message.
+        const gameOverMessage = document.querySelector('#game-over-message');
+        if (gameWon === true) {
+            gameOverMessage.textContent = 'YAS YOU WON - GO YOU!';
+            gameOverMessage.className = 'win';
+            overlay.style.display = 'block';
+        } else if (gameWon === false) {
+            gameOverMessage.textContent = 'BOO, YOU LOSE - TRY AGAIN!';
+            gameOverMessage.className = 'lose';
+            overlay.style.display = 'block';
+        }
     }
 
 }
