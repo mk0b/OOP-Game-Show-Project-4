@@ -96,3 +96,4 @@ const convertToArray = (querySelectorAllElementString) => {
     const list = [...collection];
     return list;
 };
+
