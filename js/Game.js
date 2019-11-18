@@ -63,6 +63,18 @@ class Game {
    //TODO: Remove tests.
     handleInteraction(button) {
         console.log(button);
+        console.log(activePhrase.checkLetter(button.textContent));
+        //disable the button that was clicked.
+        button.disabled = true;
+        //if (phrase.checkLetter(button.textContent)) {
+            //if phrase does not include the guessed letter
+            //set class to 'wrong'
+            //call removeLife()
+        //}
+        //if phrase includes the guessed letter 
+        //set class to 'chosen'
+        //call showMatchedLetter - checkForWin
+        //if player has won the game call gameOver
     }
 
     /*
