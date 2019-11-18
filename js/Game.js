@@ -56,8 +56,13 @@ class Game {
         return randomPhrase;
     }
 
-    handleInteraction() {
-
+    /*
+    Handles onscreen keyboard button clicks
+    @param (HTMLButtonElement) button - The clicked button element
+    */
+   //TODO: Remove tests.
+    handleInteraction(button) {
+        console.log(button);
     }
 
     /*

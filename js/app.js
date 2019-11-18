@@ -45,11 +45,15 @@ startGameButton.addEventListener('click', () => {
 });
 
 //create dynamic event listener for clicking any button letter.
+//TODO: Remove tests.
 keyboardDiv.addEventListener('click', (event) => {
     const clicked = event.target;
     console.log(clicked);
     //if a letter (only button letters not div) was clicked log the buttom/letter when calling handleInteraction(button)
-
+    //if class === key
+    if (clicked.getAttribute('class') === 'key') {
+        game.handleInteraction(clicked);
+    }
 });
 
 /*
