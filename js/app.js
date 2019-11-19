@@ -2,7 +2,7 @@
  * Project 4 - OOP Game App
  * app.js */
 
-//TODO: Fill out the read me.
+//TODO: Fill out the read me. Make sure to add all personal css changes.
 //TODO: refactor code.
 //TODO: Test!
 //TODO: Clean up comments.
