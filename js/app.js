@@ -7,50 +7,25 @@
 //TODO: Test!
 //TODO: Clean up comments.
 //TODO: Go for exceeds!
-//TODO: After they guess it correctly, show the meaning of the phrase/idiom. Or a hint before hand?
-//TODO: Document my methods correctly. Look up again how to do that.
 
 
-
-//TODO: Remove. Testing phrases array.
-//game.phrases.forEach((phrase, index) => {
-    //console.log(`Phrase ${index} - phrase: ${phrase.phrase}`);
-//});
-
-//testing the getRandomPhrase()
-//console.log(game.getRandomPhrase());
-
-
-//testing addPhraseToDisplay()
-//game.getRandomPhrase().addPhraseToDisplay();
-
-//Testing game.startGame();
-//game.startGame();
-//console.log('Active Phrase - phrase: ' , game.activePhrase.phrase);
-
-/*
-Real code below this line | Bulk Test Code to be removed above.
-*/
-
-//Declarations
+/*Global Declarations*/
 let game;
-const startGameButton = document.querySelector('#btn__reset');
-const keyboardDiv = document.querySelector('#qwerty');
+const startGameButton = selectElement('#btn__reset');
+const keyboardDiv = selectElement('#qwerty');
 
-//Event Listeners
+/*Event Listeners*/
 
-//TODO: Remove tests
+//When start button is clicked start game/reset game
 startGameButton.addEventListener('click', () => {
     game = new Game();
     game.resetGame();
     game.startGame();
 });
 
-//create dynamic event listener for clicking any button letter.
-//TODO: Remove tests.
+//Dynamic Event Listener that checks what has been clicked.
 keyboardDiv.addEventListener('click', (event) => {
     const clicked = event.target;
-    console.log(clicked);
     //if a letter (only button letters not div) was clicked log the buttom/letter when calling handleInteraction(button)
     //if class === key
     if (clicked.getAttribute('class') === 'key') {
@@ -59,20 +34,14 @@ keyboardDiv.addEventListener('click', (event) => {
 });
 
 /*
-Helper Functions
+Additional Functions that help me refactor.
 */
 
-//Converts an object into an character array and removes the characters we don't want.
-//I needed this in multiple places so I put it into a separate function.
-//TODO: Remove tests.
-//TODO: Seems to only like this.phrase if I never have to use a diff one, hard code this to this.phrase instead of param phrase.
+//Converts an object into an character array and removes the characters not needed in the phrase.
 const convertCurrentPhrase = (phrase) => {
     //Fell into a google whole to figure out how to convert an object to a string.
     const currentPhrase = JSON.stringify(phrase).toLowerCase();
-    console.log(game.activePhrase);
-    console.log(typeof phrase);
-    console.log(typeof currentPhrase);
-    console.log(currentPhrase);
+    
     //break up the string and put it into it's own array for each char including spaces.
     const phraseCharArray = currentPhrase.split("");
     console.log(phraseCharArray);
@@ -81,12 +50,12 @@ const convertCurrentPhrase = (phrase) => {
     for  (let i = 0; i <= 10; i++) {
         phraseCharArray.shift();
     }
-    console.log(phraseCharArray);
+
     //Removing the last two unwanted chars from the string
     for (let c = 0; c <= 1; c++) {
         phraseCharArray.pop();
     }
-    console.log(phraseCharArray);
+
     return phraseCharArray;
 };
 
@@ -99,7 +68,7 @@ const convertToArray = (querySelectorAllElementString) => {
     return list;
 };
 
-//TODO: Make a select one element function
+//Selecting one element from the DOM
 const selectElement = (element) => {
     return document.querySelector(element);
 };
