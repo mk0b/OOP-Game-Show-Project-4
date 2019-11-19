@@ -39,8 +39,10 @@ const keyboardDiv = document.querySelector('#qwerty');
 
 //Event Listeners
 
+//TODO: Remove tests
 startGameButton.addEventListener('click', () => {
     game = new Game();
+    game.resetGame();
     game.startGame();
 });
 
@@ -97,3 +99,7 @@ const convertToArray = (querySelectorAllElementString) => {
     return list;
 };
 
+//TODO: Make a select one element function
+const selectElement = (element) => {
+    return document.querySelector(element);
+};

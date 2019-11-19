@@ -36,6 +36,8 @@ class Game {
         return phraseList;      
     }
 
+    //TODO:  Add documentaton for this method.
+    //TODO: Why is my game not resetting?
     startGame() {
         //hiding overlay
         const overlay = document.querySelector('#overlay');
@@ -67,24 +69,30 @@ class Game {
         //console.log(phrase.checkLetter());
         //disable the button that was clicked.
         button.disabled = true;
-        if (game.activePhrase.checkLetter(button.textContent)) {
+        if (this.activePhrase.checkLetter(button.textContent)) {
             //if phrase includes the guessed letter
             //set class to 'chosen'
             button.className = 'chosen';
             //call showMatchedLetter
-            //if player has won the game call gameOver check with checkforWin
-            if (game.checkForWin()) {
-                //true - player has won!
-                game.gameOver();
-
-            }
-            game.activePhrase.showMatchedLetter(button.textContent);
+            this.activePhrase.showMatchedLetter(button.textContent);
         } else {
             //if phrase does not include the guessed letter
             //set class to 'wrong'
             button.className = 'wrong';
             //call removeLife()
-            game.removeLife();
+            this.removeLife();
+        }
+
+        //if 5 hearts have been used, call game over and pass false into it. (5 missed)
+        if (this.missed === 5) {
+            this.gameOver(false);
+        }
+
+        //if all classes are set to show in the phrase - win
+        if (this.checkForWin()) {
+            console.log(this.checkForWin());
+            //true - player has won!
+            this.gameOver(true);
         }
     }
 
@@ -98,6 +106,7 @@ class Game {
         const noSpaceLiList = convertToArray('#phrase li').filter(li => !li.classList.contains('space'));
         console.log(noSpaceLiList);
         //looping through with .every. If all match will pass true if it gets one false will pass false.
+        console.log(noSpaceLiList.every(li => li.classList.contains('show')));
         return noSpaceLiList.every(li => li.classList.contains('show'));
     }
 
@@ -152,4 +161,25 @@ class Game {
         }
     }
 
+    /*
+    Resetting the keyboard, lives, phrase list items, and missed property.
+    */
+    resetGame() {
+    //grab phrase UL and remove lis
+    const phraseUL = selectElement('#phrase ul');
+    while (phraseUL.firstChild) {
+        phraseUL.removeChild(phraseUL.firstChild);
+    };
+    //enable all button letters - set back the key class
+    convertToArray('#qwerty button').forEach(button => {
+        button.disabled = false;
+        button.className = 'key';
+    });
+    //reset heart lives?
+    convertToArray('#scoreboard img').forEach(img => {
+        img.src = 'images/liveHeart.png';
+    });
+    //resetting missed
+    game.missed = 0;
+    }
 }
