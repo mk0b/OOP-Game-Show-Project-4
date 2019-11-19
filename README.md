@@ -17,3 +17,15 @@ If you find all letters in the phrase before your lives run out, the game ends a
 
 
 Styling Changes I made:
+
+My color palette for the changes was insipired by Stardew Valley (game) colors.
+
+- Changed the onscreen keyboard .chosen color to a different yellow.
+- Changed the onscreen keyboard .show color to match the .chosen new yellow.
+- Changed the onscreen keyboard .wrong color to a dark red with gray text to make it more clean you chose the wrong thing and it's now disabled.
+- Changed color of the .header to a darker burt yellow to match the color palette.
+- Change color of winning background (--color-win) to a darker green.
+- Changed color of the losing background (--color-lose) to a darker red.
+- Changed the .start background color of the overlay to a brighter color blue.
+- I edited the hearts images in paint. I changed the regular hearts to a darker red and I created a black broken heart for the loss of life heart.
+- Changed font to "Cabin" in sans-serif.
