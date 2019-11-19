@@ -25,20 +25,31 @@ startGameButton.addEventListener('click', () => {
 
 //Dynamic Event Listener that checks what has been clicked.
 keyboardDiv.addEventListener('click', (event) => {
-    const clicked = event.target;
+    const clickedButton = event.target;
+    
     //if a letter (only button letters not div) was clicked log the buttom/letter when calling handleInteraction(button)
     //if class === key
-    if (clicked.getAttribute('class') === 'key') {
-        game.handleInteraction(clicked);
+    if (clickedButton.getAttribute('class') === 'key') {
+        game.handleInteraction(clickedButton);
     }
 });
 
-//TODO: Event listener has been added for the keydown or keyup event so that pressing a 
-//physical keyboard button results in the handleInteraction() method being called for the 
-//associated onscreen keyboard button
-keyboardDiv.addEventListener('keydown', (event) => {
-    const pressed = event.keyCode;
-    console.log(pressed);
+//Event listener for the body for keyboard down events. Then match it to the on screen
+//and pass the button through to the handleInteraction method.
+//Got help from Steve Griffith on youtube: https://www.youtube.com/watch?v=5-koI06rmcA
+//Was very hard to find info on this for body and NOT input!
+document.body.addEventListener('keydown', (event) => {
+    //Getting the info on the char that was pressed on the keyboard.
+    const char = event.char || event.charCode || event.which;
+    //Getting the string that was pressed and converting it to lower case.
+    const characterTyped = String.fromCharCode(char).toLowerCase();
+    
+    //I need to match the keyboard press with the onscreen keyboard button
+    convertToArray('#qwerty button').forEach(button => {
+        if (button.textContent === characterTyped) {
+            game.handleInteraction(button);
+        }
+    });
 });
 
 
