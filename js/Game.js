@@ -55,7 +55,6 @@ class Game {
     Handles onscreen keyboard button clicks
     @param (HTMLButtonElement) button - The clicked button element
     */
-   //TODO: Remove tests.
     handleInteraction(button) {
         //disable the button that was clicked.
         button.disabled = true;

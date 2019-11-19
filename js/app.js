@@ -11,8 +11,8 @@
 
 /*Global Declarations*/
 let game;
-const startGameButton = selectElement('#btn__reset');
-const keyboardDiv = selectElement('#qwerty');
+const startGameButton = document.querySelector('#btn__reset');
+const keyboardDiv = document.querySelector('#qwerty');
 
 /*Event Listeners*/
 
@@ -33,6 +33,15 @@ keyboardDiv.addEventListener('click', (event) => {
     }
 });
 
+//TODO: Event listener has been added for the keydown or keyup event so that pressing a 
+//physical keyboard button results in the handleInteraction() method being called for the 
+//associated onscreen keyboard button
+keyboardDiv.addEventListener('keydown', (event) => {
+    const pressed = event.keyCode;
+    console.log(pressed);
+});
+
+
 /*
 Additional Functions that help me refactor.
 */
@@ -44,7 +53,6 @@ const convertCurrentPhrase = (phrase) => {
     
     //break up the string and put it into it's own array for each char including spaces.
     const phraseCharArray = currentPhrase.split("");
-    console.log(phraseCharArray);
 
     //Removing the unwated first 10 indices and the last index.
     for  (let i = 0; i <= 10; i++) {
