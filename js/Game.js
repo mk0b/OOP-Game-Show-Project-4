@@ -47,7 +47,6 @@ class Game {
     getRandomPhrase() {
         const randomNumber = Math.floor( Math.random() * this.phrases.length);
         const randomPhrase = new Phrase(this.phrases[randomNumber]);
-        //TODO: Add code to prevent the same phrase coming up in a row? Maybe. We might take care of this in a diff way.
         return randomPhrase;
     }
 
