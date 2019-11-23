@@ -2,6 +2,9 @@
  * Project 4 - OOP Game App
  * app.js */
 
+//TODO: Add a clickable hint they can click on while they are playing.
+//TODO: Show what the phrase was after someone loses.
+//TODO: Add something make sure the random number does not repeat.
 
 /*Global Declarations*/
 let game;
